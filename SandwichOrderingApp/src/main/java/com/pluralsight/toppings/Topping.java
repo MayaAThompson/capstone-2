@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.toppings;
+
+import com.pluralsight.Size;
 
 public abstract class Topping {
 
@@ -9,5 +11,5 @@ public abstract class Topping {
         this.size = size;
     }
 
-    abstract double getPrice();
+    abstract public double getPrice();
 }

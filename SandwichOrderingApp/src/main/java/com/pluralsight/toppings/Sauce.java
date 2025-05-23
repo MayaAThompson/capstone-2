@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.toppings;
+
+import com.pluralsight.Size;
 
 public class Sauce extends Topping{
 
@@ -13,7 +15,7 @@ public class Sauce extends Topping{
     }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
         return 0;
     }
 }

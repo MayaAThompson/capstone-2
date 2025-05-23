@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.items;
 
 public abstract class Item {
 

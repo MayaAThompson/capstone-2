@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.items.Item;
+
 import java.util.List;
 
 public class UserInterface {

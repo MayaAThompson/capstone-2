@@ -1,4 +1,8 @@
-package com.pluralsight;
+package com.pluralsight.items;
+
+import com.pluralsight.Size;
+import com.pluralsight.toppings.BreadType;
+import com.pluralsight.toppings.Topping;
 
 import java.util.ArrayList;
 import java.util.List;

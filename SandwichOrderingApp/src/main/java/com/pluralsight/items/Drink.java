@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.items;
+
+import com.pluralsight.Size;
 
 public class Drink extends Item{
 

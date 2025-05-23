@@ -1,9 +1,11 @@
-package com.pluralsight;
+package com.pluralsight.toppings;
+
+import com.pluralsight.Size;
 
 public class Cheese extends Topping{
 
-    CheeseType cheeseType;
-    boolean extra;
+    private CheeseType cheeseType;
+    private boolean extra;
 
     public Cheese(CheeseType cheeseType, Size size, boolean extra) {
         super(size);
@@ -13,7 +15,7 @@ public class Cheese extends Topping{
     }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
         if (extra)
             return size.extraCheesePrice;
         else

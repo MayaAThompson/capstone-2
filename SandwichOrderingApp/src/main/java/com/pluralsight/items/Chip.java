@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.items;
 
 public class Chip extends Item{
 

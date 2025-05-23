@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.toppings;
+
+import com.pluralsight.Size;
 
 public class RegularTopping extends Topping{
 
@@ -11,7 +13,7 @@ public class RegularTopping extends Topping{
     }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
         return 0;
     }
 }

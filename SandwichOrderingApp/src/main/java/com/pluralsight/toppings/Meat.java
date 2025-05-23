@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.toppings;
+
+import com.pluralsight.Size;
 
 public class Meat extends Topping{
 
@@ -13,7 +15,7 @@ public class Meat extends Topping{
     }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
         if (extra)
             return size.extraMeatPrice;
         else
