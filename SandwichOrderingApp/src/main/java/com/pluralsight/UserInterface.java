@@ -15,8 +15,7 @@ public class UserInterface {
                 -----Home-----
                 
                 1) New order
-                0) Exit
-                """);
+                0) Exit""");
     }
 
     public void displayOrderScreen() {
@@ -95,7 +94,7 @@ public class UserInterface {
         System.out.printf("Total: $%.2f", total);
     }
 
-    public int screenSelection() {
+    public int getSelection() {
         try {
             return IOUtils.messageAndResponseInt("Make your selection: ");
         } catch (NumberFormatException e) {
