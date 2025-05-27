@@ -19,19 +19,19 @@ public class Order {
     }
 
     public void addSandwich(Sandwich sandwich) {
-
+        this.items.add(sandwich);
     }
 
     public void addChip(Chip chip) {
-
+        this.items.add(chip);
     }
 
     public void addDrink(Drink drink) {
-
+        this.items.add(drink);
     }
 
     public void removeItem(Item item) {
-
+        this.items.remove(item);
     }
 
     public List<Item> getOrder() {

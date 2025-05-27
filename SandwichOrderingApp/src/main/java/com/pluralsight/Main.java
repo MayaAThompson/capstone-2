@@ -1,5 +1,10 @@
 package com.pluralsight;
 
+import com.pluralsight.items.Chip;
+import com.pluralsight.items.Drink;
+import com.pluralsight.items.Sandwich;
+import com.pluralsight.utils.IOUtils;
+
 public class Main {
 
     UserInterface userInterface = new UserInterface();
@@ -31,30 +36,44 @@ public class Main {
             userInterface.displayOrderScreen();
             int selection = userInterface.getSelection();
             switch (selection) {
-                case 1 -> processSandwich(order);
-                case 2 -> processSigSandwich(order);
-                case 3 -> processDrink(order);
-                case 4 -> processChip(order);
+                case 1 -> order.addSandwich(processSandwich());
+                case 2 -> order.addSandwich(processSigSandwich());
+                case 3 -> order.addDrink(processDrink());
+                case 4 -> order.addChip(processChip());
                 case 5 -> processCheckout(order);
                 case 0 -> keepRunning = false;
             }
         }
     }
 
-    public void processSandwich(Order order) {
+    public Sandwich processSandwich() {
+        Sandwich sandwich = new Sandwich();
+        sandwich.selectSize();
+        sandwich.selectBread();
+        sandwich.selectToasted();
+        boolean keepRunning = true;
+        while (keepRunning) {
+            userInterface.displaySandwichScreen();
+            int selection = userInterface.getSelection();
+            switch (selection) {
+                case 1 -> System.out.println("not here");
+                case 2 -> System.out.println("not here either");
 
+            }
+        }
+        return sandwich;
     }
 
-    public void processSigSandwich(Order order) {
-
+    public Sandwich processSigSandwich() {
+        return null;
     }
 
-    public void processDrink(Order order) {
-
+    public Drink processDrink() {
+        return null;
     }
 
-    public void processChip(Order order) {
-
+    public Chip processChip() {
+        return null;
     }
 
     public void processCheckout(Order order) {
