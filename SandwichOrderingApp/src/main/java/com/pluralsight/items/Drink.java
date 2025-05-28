@@ -21,7 +21,12 @@ public class Drink extends Item{
         return size.drinkPrice;
     }
 
-    public void addFlavor(int selection) {
+    @Override
+    public String getName() {
+        return this.size + " " + this.flavor;
+    }
+
+    public void setFlavor(int selection) {
         switch (selection) {
             case 1 -> this.flavor = DrinkFlavor.COLA;
             case 2 -> this.flavor = DrinkFlavor.LEMON_LIME;
@@ -34,7 +39,7 @@ public class Drink extends Item{
         }
     }
 
-    public void addSize(int selection) {
+    public void setSize(int selection) {
         switch (selection) {
             case 1 -> this.size = Size.SMALL;
             case 2 -> this.size = Size.MEDIUM;

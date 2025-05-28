@@ -6,9 +6,7 @@ public abstract class Item {
 
     abstract double getPrice();
 
-    public String getName() {
-        return this.name;
-    }
+    public abstract String getName();
 
     @Override
     public String toString() {

@@ -2,14 +2,27 @@ package com.pluralsight.items;
 
 public class Chip extends Item{
 
-    ChipFlavor flavor;
+    public ChipFlavor getFlavor() {
+        return flavor;
+    }
+
+    public void setFlavor(ChipFlavor flavor) {
+        this.flavor = flavor;
+    }
+
+    private ChipFlavor flavor;
 
     @Override
     public double getPrice() {
         return 1.5;
     }
 
-    public void addFlavor(int selection) {
+    @Override
+    public String getName() {
+        return this.flavor + " CHIPS";
+    }
+
+    public void setFlavor(int selection) {
         switch (selection) {
             case 1 -> this.flavor = ChipFlavor.PLAIN;
             case 2 -> this.flavor = ChipFlavor.BBQ;

@@ -21,4 +21,9 @@ public class Meat extends Topping{
         else
             return size.meatPrice;
     }
+
+    @Override
+    public String toString() {
+        return this.meatType.toString();
+    }
 }

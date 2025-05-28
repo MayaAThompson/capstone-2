@@ -11,6 +11,11 @@ public class Sandwich extends Item {
     BreadType bread;
     Size size;
     List<Topping> toppings;
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
     boolean toasted;
 
     public Sandwich(BreadType bread, Size size, boolean toasted) {
@@ -25,15 +30,27 @@ public class Sandwich extends Item {
     }
 
     public String showSandwich() {
-        throw new RuntimeException("not yet implemented");
+        StringBuilder sandwich = new StringBuilder();
+        sandwich.append(this.size).append("\n");
+        if (toasted)
+            sandwich.append("TOASTED ");
+        sandwich.append(this.bread);
+        for (Topping topping : toppings) {
+            sandwich.append("\n").append(topping);
+            if (topping instanceof Sauce) {
+                if (((Sauce) topping).isOnTheSide())
+                    sandwich.append("(on the side)");
+            }
+        }
+        return sandwich.toString();
     }
 
     public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
-    public void removeTopping(Topping topping) {
-        toppings.remove(topping);
+    public void removeTopping(int i) {
+        toppings.remove(i - 1);
     }
 
     @Override
@@ -43,6 +60,11 @@ public class Sandwich extends Item {
             total += topping.getPrice();
         }
         return total;
+    }
+
+    @Override
+    public String getName() {
+        return showSandwich();
     }
 
     public void addBread(int selection) {
@@ -119,4 +141,6 @@ public class Sandwich extends Item {
             case 7 -> this.addTopping(new Sauce(this.size, SauceType.AU_JUS, true));
         }
     }
+
+
 }

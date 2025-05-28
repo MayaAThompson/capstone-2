@@ -21,4 +21,9 @@ public class Cheese extends Topping{
         else
             return size.cheesePrice;
     }
+
+    @Override
+    public String toString() {
+        return this.cheeseType.toString();
+    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FileManager {
 
-    static LocalDateTime dateTime;
+    static LocalDateTime dateTime = LocalDateTime.now();
     int orderNumber;
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
     private static final String savePath = "./src/main/resources/receipts/";

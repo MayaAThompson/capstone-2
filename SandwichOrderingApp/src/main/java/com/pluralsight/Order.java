@@ -10,8 +10,12 @@ import java.util.List;
 
 public class Order {
 
-    String name;
-    List<Item> items;
+    public String getName() {
+        return name;
+    }
+
+    private final String name;
+    private List<Item> items;
 
     public Order(String name) {
         items = new ArrayList<>();
@@ -30,8 +34,8 @@ public class Order {
         this.items.add(drink);
     }
 
-    public void removeItem(Item item) {
-        this.items.remove(item);
+    public void removeItem(int i) {
+        this.items.remove(i - 1);
     }
 
     public List<Item> getOrder() {

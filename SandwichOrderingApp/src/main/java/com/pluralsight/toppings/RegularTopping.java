@@ -16,4 +16,9 @@ public class RegularTopping extends Topping{
     public double getPrice() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return this.regularToppingType.toString();
+    }
 }

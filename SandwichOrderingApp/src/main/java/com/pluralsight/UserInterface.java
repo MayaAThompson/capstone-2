@@ -4,8 +4,8 @@ import com.pluralsight.items.Chip;
 import com.pluralsight.items.Drink;
 import com.pluralsight.items.Item;
 import com.pluralsight.items.Sandwich;
+import com.pluralsight.toppings.Topping;
 import com.pluralsight.utils.IOUtils;
-
 import java.util.List;
 
 public class UserInterface {
@@ -27,7 +27,9 @@ public class UserInterface {
                 2) Add signature sandwich
                 3) Add drink
                 4) Add chips
-                5) Checkout
+                5) Display order
+                6) Remove an item
+                9) Checkout
                 0) Cancel Order""");
         return getSelection();
     }
@@ -35,6 +37,7 @@ public class UserInterface {
     public int sandwichScreenSelection() {
         System.out.println("""
                 -----Build Your Sandwich-----
+                
                 1) Meat
                 2) Cheese
                 3) Toppings
@@ -92,6 +95,7 @@ public class UserInterface {
     public int regularToppingSelection() {
         System.out.println("""
                 -----Toppings-----
+                
                 1) Lettuce
                 2) Peppers
                 3) Onion
@@ -107,6 +111,7 @@ public class UserInterface {
     public int sauceSelection() {
         System.out.println("""
                 -----Sauce-----
+                
                 1) Mayo
                 2) Mustard
                 3) Ketchup
@@ -147,14 +152,9 @@ public class UserInterface {
         return getSelection();
     }
 
-    public boolean displayCheckoutScreen(List<Item> items) {
+    public boolean displayCheckoutScreen(Order order) {
+        List<Item> items = order.getOrder();
         System.out.println("-----Checkout-----");
-        displayOrder(items);
-        return yesOrNo("1) Confirm\n0) Cancel");
-    }
-
-    public void displayOrder(List<Item> items) {
-        System.out.println("-----Your Order-----\n");
         double total = 0;
         for (Item item : items) {
             System.out.println(item);
@@ -167,7 +167,24 @@ public class UserInterface {
             else
                 total = 0;
         }
-        System.out.printf("Total: $%.2f", total);
+        System.out.printf("Total: $%.2f\n", total);
+        return yesOrNo("Confirm Checkout? ");
+    }
+
+    public void displayOrder(Order order) {
+        List<Item> items = order.getOrder();
+        System.out.println("-----" + order.getName() + "'s Order-----\n");
+        double total = 0;
+        for (Item item : items) {
+            System.out.println(item.toString());
+            if (item instanceof Sandwich)
+                total += ((Sandwich) item).getPrice();
+            else if (item instanceof Chip)
+                total += ((Chip) item).getPrice();
+            else if (item instanceof Drink)
+                total += ((Drink) item).getPrice();
+        }
+        System.out.printf("Total: $%.2f\n", total);
     }
 
     public int getSelection() {
@@ -182,5 +199,25 @@ public class UserInterface {
     public boolean yesOrNo(String message) {
         char selection = IOUtils.messageAndResponse(message + "(Y/N)").toUpperCase().charAt(0);
         return selection == 'Y';
+    }
+
+    public int itemSelection(List<Item> items) {
+        int i =1;
+        for (Item item : items) {
+            System.out.print(i + ")");
+            System.out.println(item);
+            i++;
+        }
+        return getSelection();
+    }
+
+    public int sandwichToppingSelection(List<Topping> toppings) {
+        int i =1;
+        for (Topping topping : toppings) {
+            System.out.print(i + ")");
+            System.out.println(topping);
+            i++;
+        }
+        return getSelection();
     }
 }
