@@ -7,6 +7,9 @@ public class Drink extends Item{
     DrinkFlavor flavor;
     Size size;
 
+    public Drink() {
+    }
+
     public Drink(DrinkFlavor flavor, Size size) {
         this.flavor = flavor;
         this.size = size;
@@ -16,5 +19,27 @@ public class Drink extends Item{
     @Override
     public double getPrice() {
         return size.drinkPrice;
+    }
+
+    public void addFlavor(int selection) {
+        switch (selection) {
+            case 1 -> this.flavor = DrinkFlavor.COLA;
+            case 2 -> this.flavor = DrinkFlavor.LEMON_LIME;
+            case 3 -> this.flavor = DrinkFlavor.NURSE_PEPPER;
+            case 4 -> this.flavor = DrinkFlavor.LEMONADE;
+            case 5 -> this.flavor = DrinkFlavor.MOONKIST;
+            case 6 -> this.flavor = DrinkFlavor.ROOT_BEER;
+            case 7 -> this.flavor = DrinkFlavor.GRAPE;
+            case 8 -> this.flavor = DrinkFlavor.SWEET_TEA;
+        }
+    }
+
+    public void addSize(int selection) {
+        switch (selection) {
+            case 1 -> this.size = Size.SMALL;
+            case 2 -> this.size = Size.MEDIUM;
+            case 3 -> this.size = Size.LARGE;
+            default -> System.out.println("Please select an available size");
+        }
     }
 }

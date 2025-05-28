@@ -10,15 +10,16 @@ import java.util.List;
 
 public class UserInterface {
 
-    public void displayHomeScreen() {
+    public int homeScreenSelection() {
         System.out.println("""
                 -----Home-----
                 
                 1) New order
                 0) Exit""");
+        return getSelection();
     }
 
-    public void displayOrderScreen() {
+    public int orderScreenSelection() {
         System.out.println("""
                 -----Order-----
                 
@@ -28,23 +29,95 @@ public class UserInterface {
                 4) Add chips
                 5) Checkout
                 0) Cancel Order""");
+        return getSelection();
     }
 
-    public void displaySandwichScreen() {
-
-    }
-
-    public void displaySizeScreen() {
+    public int sandwichScreenSelection() {
         System.out.println("""
-                -----Size-----
+                -----Build Your Sandwich-----
+                1) Meat
+                2) Cheese
+                3) Toppings
+                4) Sauce
+                9) Confirm
+                0) Cancel""");
+        return getSelection();
+    }
+
+    public int sizeSelection() {
+        System.out.println("""
+                -----Sizes-----
                 
                 1) Small
                 2) Medium
-                3) Large
-                0) Cancel""");
+                3) large""");
+        return getSelection();
     }
 
-    public void displayChipScreen() {
+    public int breadSelection() {
+        System.out.println("""
+                -----Bread-----
+                
+                1) White
+                2) Wheat
+                3) Rye
+                4) Wrap""");
+        return getSelection();
+    }
+
+    public int meatSelection() {
+        System.out.println("""
+                -----Meat-----
+                
+                1) Steak
+                2) Ham
+                3) Salami
+                4) Roast Beef
+                5) Chicken
+                6) Bacon""");
+        return getSelection();
+    }
+
+    public int cheeseSelection() {
+        System.out.println("""
+                -----Cheese-----
+                
+                1) American
+                2) Provolone
+                3) Cheddar
+                4) Swiss""");
+        return getSelection();
+    }
+
+    public int regularToppingSelection() {
+        System.out.println("""
+                -----Toppings-----
+                1) Lettuce
+                2) Peppers
+                3) Onion
+                4) Tomato
+                5) Jalapeno
+                6) Cucumber
+                7) Pickle
+                8) Guacamole
+                9) Mushroom""");
+        return getSelection();
+    }
+
+    public int sauceSelection() {
+        System.out.println("""
+                -----Sauce-----
+                1) Mayo
+                2) Mustard
+                3) Ketchup
+                4) Ranch
+                5) Thousand Island
+                6) Vinaigrette
+                7) Au Jus""");
+        return getSelection();
+    }
+
+    public int chipSelection() {
         System.out.println("""
                 -----Chip Flavors-----
                 
@@ -55,9 +128,10 @@ public class UserInterface {
                 5) Chill Ranch
                 6) Cheesy
                 0) Cancel""");
+        return getSelection();
     }
 
-    public void displayDrinkFlavorScreen() {
+    public int drinkSelection() {
         System.out.println("""
                 -----Drinks-----
                 
@@ -68,13 +142,15 @@ public class UserInterface {
                 5) Moonkist
                 6) Root Beer
                 7) Grape Soda
+                8) Sweet Tea
                 0) Cancel""");
+        return getSelection();
     }
 
-    public void displayCheckoutScreen(List<Item> items) {
+    public boolean displayCheckoutScreen(List<Item> items) {
         System.out.println("-----Checkout-----");
         displayOrder(items);
-        System.out.println("1) Confirm\n0) Cancel");
+        return yesOrNo("1) Confirm\n0) Cancel");
     }
 
     public void displayOrder(List<Item> items) {
@@ -101,5 +177,10 @@ public class UserInterface {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public boolean yesOrNo(String message) {
+        char selection = IOUtils.messageAndResponse(message + "(Y/N)").toUpperCase().charAt(0);
+        return selection == 'Y';
     }
 }

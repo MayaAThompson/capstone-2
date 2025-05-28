@@ -7,7 +7,7 @@ public class Meat extends Topping{
     MeatType meatType;
     boolean extra;
 
-    public Meat(Size size, MeatType meatType, boolean extra) {
+    public Meat(MeatType meatType, Size size, boolean extra) {
         super(size);
         this.meatType = meatType;
         this.extra = extra;

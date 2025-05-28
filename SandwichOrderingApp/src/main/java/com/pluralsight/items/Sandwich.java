@@ -1,11 +1,7 @@
 package com.pluralsight.items;
 
 import com.pluralsight.Size;
-import com.pluralsight.toppings.BreadType;
-import com.pluralsight.toppings.Cheese;
-import com.pluralsight.toppings.CheeseType;
-import com.pluralsight.toppings.Topping;
-import com.pluralsight.utils.IOUtils;
+import com.pluralsight.toppings.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,14 +45,7 @@ public class Sandwich extends Item {
         return total;
     }
 
-    public void selectBread() {
-        System.out.println("-----Bread Types-----");
-        System.out.println("""
-                1) White
-                2) Wheat
-                3) Rye
-                4) Wrap""");
-        int selection = IOUtils.messageAndResponseInt("Select your bread");
+    public void addBread(int selection) {
         switch (selection) {
             case 1 -> this.bread = BreadType.WHITE;
             case 2 -> this.bread = BreadType.WHEAT;
@@ -66,42 +55,17 @@ public class Sandwich extends Item {
         }
     }
 
-    public void selectSize() {
-        System.out.println("-----Sizes-----");
-        System.out.println("""
-                1) Small
-                2) Medium
-                3) large""");
-        int selection = IOUtils.messageAndResponseInt("Select your size: ");
+    public void addSize(int selection) {
         switch (selection) {
             case 1 -> this.size = Size.SMALL;
             case 2 -> this.size = Size.MEDIUM;
             case 3 -> this.size = Size.LARGE;
-            default -> System.out.println("Please select and available bread type");
+            default -> System.out.println("Please select an available size");
         }
     }
 
-    public void selectToasted() {
-        char selection;
-        do {
-            selection = IOUtils.messageAndResponse("Would you like it toasted? (Y/N)").toUpperCase().charAt(0);
-            if (selection == 'Y')
-                this.toasted = true;
-            else if (selection == 'N')
-                this.toasted = false;
-            else
-                System.out.println("Please select Yes or No");
-        } while (selection != 'Y' && selection != 'N');
-    }
-
-
-    public int cheeseSelection() {
-        return IOUtils.messageAndResponseInt("""
-                -----Cheese-----
-                1) American
-                2) Provolone
-                3) Cheddar
-                4) Swiss""");
+    public void selectToasted(boolean selection) {
+        this.toasted = selection;
     }
 
     public void addCheese(int selection) {
@@ -113,6 +77,46 @@ public class Sandwich extends Item {
             case 3 -> this.addTopping(new Cheese(CheeseType.CHEDDAR, this.size, extra));
             case 4 -> this.addTopping(new Cheese(CheeseType.SWISS, this.size, extra));
             default -> System.out.println("Please select an available cheese.");
+        }
+    }
+
+    public void addMeat(int selection) {
+        boolean extra = toppings.stream().anyMatch(t -> t.getClass().equals(Meat.class));
+
+        switch (selection) {
+            case 1 -> this.addTopping(new Meat(MeatType.STEAK, this.size, extra));
+            case 2 -> this.addTopping(new Meat(MeatType.HAM, this.size, extra));
+            case 3 -> this.addTopping(new Meat(MeatType.SALAMI, this.size, extra));
+            case 4 -> this.addTopping(new Meat(MeatType.ROAST_BEEF, this.size, extra));
+            case 5 -> this.addTopping(new Meat(MeatType.CHICKEN, this.size, extra));
+            case 6 -> this.addTopping(new Meat(MeatType.BACON, this.size, extra));
+            default -> System.out.println("Please select an available meat.");
+        }
+    }
+
+    public void addRegularTopping(int selection) {
+        switch (selection) {
+            case 1-> this.addTopping(new RegularTopping(this.size, RegularToppingType.LETTUCE));
+            case 2-> this.addTopping(new RegularTopping(this.size, RegularToppingType.PEPPERS));
+            case 3-> this.addTopping(new RegularTopping(this.size, RegularToppingType.ONION));
+            case 4-> this.addTopping(new RegularTopping(this.size, RegularToppingType.TOMATO));
+            case 5-> this.addTopping(new RegularTopping(this.size, RegularToppingType.JALAPENO));
+            case 6-> this.addTopping(new RegularTopping(this.size, RegularToppingType.CUCUMBER));
+            case 7-> this.addTopping(new RegularTopping(this.size, RegularToppingType.PICKLE));
+            case 8-> this.addTopping(new RegularTopping(this.size, RegularToppingType.GUACAMOLE));
+            case 9-> this.addTopping(new RegularTopping(this.size, RegularToppingType.MUSHROOM));
+        }
+    }
+
+    public void addSauce(int selection, boolean side) {
+        switch (selection) {
+            case 1 -> this.addTopping(new Sauce(this.size, SauceType.MAYO, side));
+            case 2 -> this.addTopping(new Sauce(this.size, SauceType.MUSTARD, side));
+            case 3 -> this.addTopping(new Sauce(this.size, SauceType.KETCHUP, side));
+            case 4 -> this.addTopping(new Sauce(this.size, SauceType.RANCH, side));
+            case 5 -> this.addTopping(new Sauce(this.size, SauceType.THOUSAND_ISLAND, side));
+            case 6 -> this.addTopping(new Sauce(this.size, SauceType.VINAIGRETTE, side));
+            case 7 -> this.addTopping(new Sauce(this.size, SauceType.AU_JUS, true));
         }
     }
 }

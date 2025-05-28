@@ -6,7 +6,7 @@ public enum ChipFlavor {
     PLAIN,
     CRACKED_PEPPER,
     JALAPENO,
-    COOL_RANCH,
+    CHILL_RANCH,
     CHEESY;
 
 }

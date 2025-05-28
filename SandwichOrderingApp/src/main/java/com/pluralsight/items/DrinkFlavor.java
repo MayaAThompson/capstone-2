@@ -8,5 +8,6 @@ public enum DrinkFlavor {
     LEMONADE,
     MOONKIST,
     ROOT_BEER,
-    GRAPE;
+    GRAPE,
+    SWEET_TEA
 }
