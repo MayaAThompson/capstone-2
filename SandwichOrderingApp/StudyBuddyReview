@@ -1,0 +1,49 @@
+Great! I’ve extracted and reviewed the contents of your Java project. Here’s a constructive **code review** based on the practices outlined in your course materials and workbooks:
+
+---
+
+### ✅ **Strengths Noted:**
+
+1. **Clear Use of OOP Principles**
+   Your project demonstrates use of classes and encapsulation appropriately. Most fields are marked `private`, and getters/setters are used properly—this aligns with the encapsulation guidance from Workbook 4.
+
+2. **Proper Package Structure**
+   Your classes appear to be organized into meaningful packages, which is excellent. This follows the packaging best practices detailed in Workbook 6.
+
+3. **Constructor Overloading**
+   Some classes have multiple constructors, showing a good understanding of method overloading as discussed in Workbook 4.
+
+---
+
+### 🛠️ **Areas for Improvement:**
+
+1. **Avoid Logic in `main()` Method**
+   Several classes rely heavily on the `main()` method to perform logic, which can hinder testability and reusability. Try delegating logic to separate methods or service classes.
+
+   > 💡 *Best Practice:* Keep the `main()` method focused on initiating the program—use it to create objects and invoke methods, not to contain all business logic.
+
+2. **Repeated Code for Input Handling**
+   If multiple classes or methods collect user input using a `Scanner`, consider extracting this to a utility class. Repetition goes against the DRY principle (Workbook 5, page 1-4).
+
+3. **Minimal Use of Polymorphism or Interfaces**
+   For projects involving multiple related classes (e.g., Vehicle, Car, Moped), using inheritance or interfaces can help you generalize behavior and reduce redundancy—this is emphasized in Workbook 5 and 6.
+
+   > 🔍 Consider creating a parent class or interface and overriding methods for specific behavior.
+
+---
+
+### 🔎 **Minor Suggestions:**
+
+* **String Comparison:** Always use `.equals()` or `.equalsIgnoreCase()` instead of `==` when comparing strings, per Workbook 2 guidance.
+* **Naming Conventions:** Follow standard Java naming conventions. Class names should start with an uppercase letter, and variable names with a lowercase.
+* **Add Comments:** Some methods lack descriptive comments. Including them helps with maintainability and collaboration.
+
+---
+
+### 📘 IntelliJ Tip:
+
+If you haven’t already, use **Code > Reformat Code (Ctrl+Alt+L)** in IntelliJ to clean up indentation and style automatically. It greatly improves readability and consistency.
+
+---
+
+Would you like help identifying one specific class or functionality to refactor for better clarity or to demonstrate using inheritance or interfaces?
