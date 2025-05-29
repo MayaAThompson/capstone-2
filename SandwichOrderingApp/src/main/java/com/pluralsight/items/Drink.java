@@ -13,7 +13,6 @@ public class Drink extends Item{
     public Drink(DrinkFlavor flavor, Size size) {
         this.flavor = flavor;
         this.size = size;
-        this.name = flavor.toString();
     }
 
     @Override

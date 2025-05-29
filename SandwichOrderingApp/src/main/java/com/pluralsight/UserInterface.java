@@ -221,4 +221,14 @@ public class UserInterface {
         }
         return getSelection();
     }
+
+    public int signatureSandwichSelection() {
+        System.out.println("""
+                -----Signature Sandwiches-----
+                1) Reuben
+                2) Cuban
+                3) BLT
+                4) Mushroom Swiss""");
+        return getSelection();
+    }
 }

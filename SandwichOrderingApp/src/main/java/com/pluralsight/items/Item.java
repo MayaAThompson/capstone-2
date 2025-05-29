@@ -2,8 +2,6 @@ package com.pluralsight.items;
 
 public abstract class Item {
 
-    String name;
-
     abstract double getPrice();
 
     public abstract String getName();

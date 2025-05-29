@@ -8,9 +8,10 @@ import java.util.List;
 
 public class Sandwich extends Item {
 
-    private BreadType bread;
-    private Size size;
-    private List<Topping> toppings;
+    protected BreadType bread;
+    protected Size size;
+    protected List<Topping> toppings;
+    protected boolean signature;
 
     public List<Topping> getToppings() {
         return toppings;
@@ -77,7 +78,7 @@ public class Sandwich extends Item {
         }
     }
 
-    public void addSize(int selection) {
+    public void selectSize(int selection) {
         switch (selection) {
             case 1 -> this.size = Size.SMALL;
             case 2 -> this.size = Size.MEDIUM;
@@ -164,5 +165,9 @@ public class Sandwich extends Item {
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
+    }
+
+    public boolean isSignature() {
+        return signature;
     }
 }

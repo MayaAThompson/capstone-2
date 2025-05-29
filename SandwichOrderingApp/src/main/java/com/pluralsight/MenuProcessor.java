@@ -1,8 +1,6 @@
 package com.pluralsight;
 
-import com.pluralsight.items.Chip;
-import com.pluralsight.items.Drink;
-import com.pluralsight.items.Sandwich;
+import com.pluralsight.items.*;
 import com.pluralsight.utils.IOUtils;
 
 public class MenuProcessor {
@@ -43,9 +41,11 @@ public class MenuProcessor {
     }
 
     public Sandwich processSandwich(Sandwich sandwich) {
-        sandwich.addSize(userInterface.sizeSelection());
-        sandwich.addBread(userInterface.breadSelection());
-        sandwich.selectToasted(userInterface.yesOrNo("Would you like your sandwich toasted? "));
+        if (!sandwich.isSignature()) {
+            sandwich.selectSize(userInterface.sizeSelection());
+            sandwich.addBread(userInterface.breadSelection());
+            sandwich.selectToasted(userInterface.yesOrNo("Would you like your sandwich toasted? "));
+        }
         boolean keepRunning = true;
         while (keepRunning) {
             int selection = userInterface.sandwichScreenSelection();
@@ -68,9 +68,19 @@ public class MenuProcessor {
     }
 
     public Sandwich processSigSandwich() {
-        Sandwich sandwich;
+        Sandwich sandwich = null;
+        int selection = userInterface.signatureSandwichSelection();
+        while(sandwich == null) {
+            switch (selection) {
+                case 1 -> sandwich = new ReubenSandwich(userInterface.sizeSelection());
+                case 2 -> sandwich = new CubanSandwich(userInterface.sizeSelection());
+                case 3 -> sandwich = new BltSandwich(userInterface.sizeSelection());
+                case 4 -> sandwich = new MushroomSwissSandwich(userInterface.sizeSelection());
+                default -> System.out.println("Please select one of our delicious sandwiches!");
+            }
+        }
 
-        return null;
+        return sandwich;
     }
 
     public Drink processDrink() {
