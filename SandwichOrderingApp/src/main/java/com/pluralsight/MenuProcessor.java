@@ -34,7 +34,10 @@ public class MenuProcessor {
                     processCheckout(order);
                     keepRunning = false;
                 }
-                case 0 -> keepRunning = false;
+                case 0 -> {
+                    order = null;
+                    keepRunning = false;
+                }
                 default -> System.out.println("Please select an available option.");
             }
         }

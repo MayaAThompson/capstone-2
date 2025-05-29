@@ -15,6 +15,7 @@ public class Order {
     }
 
     private final String name;
+    @SuppressWarnings("FieldMayBeFinal")
     private List<Item> items;
 
     public Order(String name) {
@@ -35,6 +36,7 @@ public class Order {
     }
 
     public void removeItem(int i) {
+        System.out.println(this.items.get(i - 1).getName() + " Removed");
         this.items.remove(i - 1);
     }
 

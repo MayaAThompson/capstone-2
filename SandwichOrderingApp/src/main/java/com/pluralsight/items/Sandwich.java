@@ -19,13 +19,6 @@ public class Sandwich extends Item {
 
     boolean toasted;
 
-    public Sandwich(BreadType bread, Size size, boolean toasted) {
-        toppings = new ArrayList<>();
-        this.bread = bread;
-        this.size = size;
-        this.toasted = toasted;
-    }
-
     public Sandwich() {
         toppings = new ArrayList<>();
     }
@@ -51,6 +44,7 @@ public class Sandwich extends Item {
     }
 
     public void removeTopping(int i) {
+        System.out.println(toppings.get(i - 1).toString() + " removed.");
         toppings.remove(i - 1);
     }
 
@@ -143,28 +137,12 @@ public class Sandwich extends Item {
         }
     }
 
-    public BreadType getBread() {
-        return bread;
-    }
-
-    public void setBread(BreadType bread) {
-        this.bread = bread;
-    }
-
     public Size getSize() {
         return size;
     }
 
     public void setSize(Size size) {
         this.size = size;
-    }
-
-    public boolean isToasted() {
-        return toasted;
-    }
-
-    public void setToasted(boolean toasted) {
-        this.toasted = toasted;
     }
 
     public boolean isSignature() {

@@ -12,6 +12,7 @@ public class UserInterface {
 
     public int homeScreenSelection() {
         System.out.println("""
+                
                 -----Home-----
                 
                 1) New order
@@ -21,6 +22,7 @@ public class UserInterface {
 
     public int orderScreenSelection() {
         System.out.println("""
+                
                 -----Order-----
                 
                 1) Add custom sandwich
@@ -36,12 +38,14 @@ public class UserInterface {
 
     public int sandwichScreenSelection() {
         System.out.println("""
+                
                 -----Build Your Sandwich-----
                 
                 1) Meat
                 2) Cheese
                 3) Toppings
                 4) Sauce
+                5) Remove a topping
                 9) Confirm
                 0) Cancel""");
         return getSelection();
@@ -49,6 +53,7 @@ public class UserInterface {
 
     public int sizeSelection() {
         System.out.println("""
+                
                 -----Sizes-----
                 
                 1) Small
@@ -59,6 +64,7 @@ public class UserInterface {
 
     public int breadSelection() {
         System.out.println("""
+                
                 -----Bread-----
                 
                 1) White
@@ -70,6 +76,7 @@ public class UserInterface {
 
     public int meatSelection() {
         System.out.println("""
+                
                 -----Meat-----
                 
                 1) Steak
@@ -83,6 +90,7 @@ public class UserInterface {
 
     public int cheeseSelection() {
         System.out.println("""
+                
                 -----Cheese-----
                 
                 1) American
@@ -94,6 +102,7 @@ public class UserInterface {
 
     public int regularToppingSelection() {
         System.out.println("""
+                
                 -----Toppings-----
                 
                 1) Lettuce
@@ -110,6 +119,7 @@ public class UserInterface {
 
     public int sauceSelection() {
         System.out.println("""
+                
                 -----Sauce-----
                 
                 1) Mayo
@@ -124,6 +134,7 @@ public class UserInterface {
 
     public int chipSelection() {
         System.out.println("""
+                
                 -----Chip Flavors-----
                 
                 1) Plain
@@ -138,6 +149,7 @@ public class UserInterface {
 
     public int drinkSelection() {
         System.out.println("""
+                
                 -----Drinks-----
                 
                 1) Cola
@@ -154,7 +166,7 @@ public class UserInterface {
 
     public boolean displayCheckoutScreen(Order order) {
         List<Item> items = order.getOrder();
-        System.out.println("-----Checkout-----\n");
+        System.out.println("\n-----Checkout-----\n");
         double total = 0;
         for (Item item : items) {
             System.out.println(item);
@@ -173,7 +185,7 @@ public class UserInterface {
 
     public void displayOrder(Order order) {
         List<Item> items = order.getOrder();
-        System.out.println("-----" + order.getName() + "'s Order-----\n");
+        System.out.println("\n-----" + order.getName() + "'s Order-----\n");
         double total = 0;
         for (Item item : items) {
             System.out.println(item.toString());
@@ -224,6 +236,7 @@ public class UserInterface {
 
     public int signatureSandwichSelection() {
         System.out.println("""
+                
                 -----Signature Sandwiches-----
                 
                 1) Reuben
