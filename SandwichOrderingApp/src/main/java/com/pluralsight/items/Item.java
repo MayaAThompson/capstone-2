@@ -8,6 +8,6 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return this.getName() + " " + this.getPrice();
+        return String.format("%s %.2f",this.getName(), this.getPrice());
     }
 }

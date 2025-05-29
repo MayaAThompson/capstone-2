@@ -1,6 +1,5 @@
 package com.pluralsight.items;
 
-import com.pluralsight.UserInterface;
 import com.pluralsight.toppings.*;
 
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ public class CubanSandwich extends Sandwich{
 
     public CubanSandwich(int size) {
         this.selectSize(size);
+        signature = true;
         toppings = new ArrayList<>();
         this.bread = BreadType.WHITE;
         this.toasted = true;

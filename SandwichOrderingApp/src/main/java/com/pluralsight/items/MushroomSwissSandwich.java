@@ -8,6 +8,7 @@ public class MushroomSwissSandwich extends Sandwich{
 
     public MushroomSwissSandwich(int size) {
         toppings = new ArrayList<>();
+        signature = true;
         this.selectSize(size);
         this.bread = BreadType.WHITE;
         this.toasted = true;

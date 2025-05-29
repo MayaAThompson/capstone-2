@@ -8,6 +8,7 @@ public class BltSandwich extends Sandwich{
 
     public BltSandwich(int size) {
         toppings = new ArrayList<>();
+        signature = true;
         this.selectSize(size);
         this.bread = BreadType.WHEAT;
         this.toasted = true;

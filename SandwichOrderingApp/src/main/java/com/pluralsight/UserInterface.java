@@ -154,7 +154,7 @@ public class UserInterface {
 
     public boolean displayCheckoutScreen(Order order) {
         List<Item> items = order.getOrder();
-        System.out.println("-----Checkout-----");
+        System.out.println("-----Checkout-----\n");
         double total = 0;
         for (Item item : items) {
             System.out.println(item);
@@ -225,6 +225,7 @@ public class UserInterface {
     public int signatureSandwichSelection() {
         System.out.println("""
                 -----Signature Sandwiches-----
+                
                 1) Reuben
                 2) Cuban
                 3) BLT
