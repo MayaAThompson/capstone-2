@@ -26,8 +26,8 @@ public class MenuProcessor {
         while (keepRunning) {
             int selection = userInterface.orderScreenSelection();
             switch (selection) {
-                case 1 -> order.addSandwich(processSandwich());
-                case 2 -> order.addSandwich(processSigSandwich());
+                case 1 -> order.addSandwich(processSandwich(new Sandwich()));
+                case 2 -> order.addSandwich(processSandwich(processSigSandwich()));
                 case 3 -> order.addDrink(processDrink());
                 case 4 -> order.addChip(processChip());
                 case 5 -> userInterface.displayOrder(order);
@@ -37,12 +37,12 @@ public class MenuProcessor {
                     keepRunning = false;
                 }
                 case 0 -> keepRunning = false;
+                default -> System.out.println("Please select an available option.");
             }
         }
     }
 
-    public Sandwich processSandwich() {
-        Sandwich sandwich = new Sandwich();
+    public Sandwich processSandwich(Sandwich sandwich) {
         sandwich.addSize(userInterface.sizeSelection());
         sandwich.addBread(userInterface.breadSelection());
         sandwich.selectToasted(userInterface.yesOrNo("Would you like your sandwich toasted? "));
@@ -55,38 +55,50 @@ public class MenuProcessor {
                 case 3 -> sandwich.addRegularTopping(userInterface.regularToppingSelection());
                 case 4 ->
                         sandwich.addSauce(userInterface.sauceSelection(), userInterface.yesOrNo("Want it on the side? "));
-                case 5 -> sandwich.removeTopping(userInterface.sandwichToppingSelection(sandwich.getToppings()));
+                case 5 -> sandwich.removeTopping(userInterface.existingToppingSelection(sandwich.getToppings()));
                 case 9 -> keepRunning = false;
                 case 0 -> {
                     sandwich = null;
                     keepRunning = false;
                 }
-                default -> System.out.println("Please select and available option.");
+                default -> System.out.println("Please select an available option.");
             }
         }
         return sandwich;
     }
 
     public Sandwich processSigSandwich() {
+        Sandwich sandwich;
+
         return null;
     }
 
     public Drink processDrink() {
         Drink drink = new Drink();
-        drink.setSize(userInterface.sizeSelection());
-        drink.setFlavor(userInterface.drinkSelection());
+        do
+            drink.setSize(userInterface.sizeSelection());
+        while (drink.getSize() == null);
+        do
+            drink.setFlavor(userInterface.drinkSelection());
+        while (drink.getFlavor() == null);
         return drink;
     }
 
     public Chip processChip() {
         Chip chip = new Chip();
-        chip.setFlavor(userInterface.chipSelection());
+        do
+            chip.setFlavor(userInterface.chipSelection());
+        while (chip.getFlavor() == null);
         return chip;
     }
 
     public void processCheckout(Order order) {
         boolean confirm = userInterface.displayCheckoutScreen(order);
-        if (confirm)
+        if (confirm) {
             FileManager.saveReceipt(order);
+            System.out.println("Order complete! We will have it ready for you shortly.");
+        }
+        else
+            System.out.println("Checkout cancelled.");
     }
 }

@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Sandwich extends Item {
 
-    BreadType bread;
-    Size size;
-    List<Topping> toppings;
+    private BreadType bread;
+    private Size size;
+    private List<Topping> toppings;
 
     public List<Topping> getToppings() {
         return toppings;
@@ -142,5 +142,27 @@ public class Sandwich extends Item {
         }
     }
 
+    public BreadType getBread() {
+        return bread;
+    }
 
+    public void setBread(BreadType bread) {
+        this.bread = bread;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    public boolean isToasted() {
+        return toasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        this.toasted = toasted;
+    }
 }

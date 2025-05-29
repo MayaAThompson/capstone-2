@@ -188,12 +188,13 @@ public class UserInterface {
     }
 
     public int getSelection() {
-        try {
-            return IOUtils.messageAndResponseInt("Make your selection: ");
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+        while(true) {
+            try {
+                return IOUtils.messageAndResponseInt("Make your selection: ");
+            } catch (NumberFormatException e) {
+                System.out.println("Please select a valid number");
+            }
         }
-        return 0;
     }
 
     public boolean yesOrNo(String message) {
@@ -211,7 +212,7 @@ public class UserInterface {
         return getSelection();
     }
 
-    public int sandwichToppingSelection(List<Topping> toppings) {
+    public int existingToppingSelection(List<Topping> toppings) {
         int i =1;
         for (Topping topping : toppings) {
             System.out.print(i + ")");

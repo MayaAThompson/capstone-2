@@ -14,10 +14,10 @@ class SandwichTest {
     @Test
     void testDoubleMeatDoubleCheese() {
         Sandwich sandwich = new Sandwich();
-        sandwich.size = Size.SMALL;
-        sandwich.addTopping(new Cheese(CheeseType.AMERICAN, sandwich.size, false));
+        sandwich.setSize(Size.SMALL);
+        sandwich.addTopping(new Cheese(CheeseType.AMERICAN, sandwich.getSize(), false));
         sandwich.addCheese(2);
-        sandwich.addTopping(new Meat(MeatType.STEAK, sandwich.size, false));
+        sandwich.addTopping(new Meat(MeatType.STEAK, sandwich.getSize(), false));
         sandwich.addMeat(1);
 
         double expected = 8.05;

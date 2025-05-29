@@ -36,6 +36,7 @@ public class Drink extends Item{
             case 6 -> this.flavor = DrinkFlavor.ROOT_BEER;
             case 7 -> this.flavor = DrinkFlavor.GRAPE;
             case 8 -> this.flavor = DrinkFlavor.SWEET_TEA;
+            default -> System.out.println("Please select an available flavor");
         }
     }
 
@@ -46,5 +47,13 @@ public class Drink extends Item{
             case 3 -> this.size = Size.LARGE;
             default -> System.out.println("Please select an available size");
         }
+    }
+
+    public DrinkFlavor getFlavor() {
+        return flavor;
+    }
+
+    public Size getSize() {
+        return size;
     }
 }
