@@ -10,7 +10,8 @@ import java.util.List;
 
 public class Order {
 
-    private final String name;
+    @SuppressWarnings("FieldMayBeFinal")
+    private String name;
     @SuppressWarnings("FieldMayBeFinal")
     private List<Item> items;
     public Order(String name) {

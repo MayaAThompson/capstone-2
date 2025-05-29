@@ -4,8 +4,8 @@ import com.pluralsight.Size;
 
 public abstract class Topping {
 
-    String name;
-    Size size;
+    protected String name;
+    protected Size size;
 
     public Topping(Size size) {
         this.size = size;

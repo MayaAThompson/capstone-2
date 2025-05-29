@@ -2,6 +2,7 @@ package com.pluralsight.toppings;
 
 import com.pluralsight.Size;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class Cheese extends Topping{
 
     private CheeseType cheeseType;

@@ -12,7 +12,7 @@ public class Sandwich extends Item {
     protected Size size;
     protected List<Topping> toppings;
     protected boolean signature;
-    boolean toasted;
+    protected boolean toasted;
 
     public Sandwich() {
         toppings = new ArrayList<>();

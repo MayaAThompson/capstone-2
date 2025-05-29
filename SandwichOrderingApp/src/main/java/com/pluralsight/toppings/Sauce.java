@@ -2,20 +2,21 @@ package com.pluralsight.toppings;
 
 import com.pluralsight.Size;
 
-public class Sauce extends Topping{
+@SuppressWarnings("FieldMayBeFinal")
+public class Sauce extends Topping {
 
-    public boolean isOnTheSide() {
-        return onTheSide;
-    }
-
-    boolean onTheSide;
-    SauceType sauceType;
+    private boolean onTheSide;
+    private SauceType sauceType;
 
     public Sauce(Size size, SauceType sauceType, boolean onTheSide) {
         super(size);
         this.sauceType = sauceType;
         this.onTheSide = onTheSide;
         this.name = sauceType.toString();
+    }
+
+    public boolean isOnTheSide() {
+        return onTheSide;
     }
 
     @Override

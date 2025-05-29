@@ -4,15 +4,10 @@ import com.pluralsight.Size;
 
 public class Drink extends Item{
 
-    DrinkFlavor flavor;
-    Size size;
+    private DrinkFlavor flavor;
+    private Size size;
 
     public Drink() {
-    }
-
-    public Drink(DrinkFlavor flavor, Size size) {
-        this.flavor = flavor;
-        this.size = size;
     }
 
     @Override

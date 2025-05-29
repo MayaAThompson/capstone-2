@@ -2,10 +2,11 @@ package com.pluralsight.toppings;
 
 import com.pluralsight.Size;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class Meat extends Topping{
 
-    MeatType meatType;
-    boolean extra;
+    private MeatType meatType;
+    private boolean extra;
 
     public Meat(MeatType meatType, Size size, boolean extra) {
         super(size);

@@ -2,9 +2,10 @@ package com.pluralsight.toppings;
 
 import com.pluralsight.Size;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class RegularTopping extends Topping{
 
-    RegularToppingType regularToppingType;
+    private RegularToppingType regularToppingType;
 
     public RegularTopping(Size size, RegularToppingType regularToppingType) {
         super(size);
