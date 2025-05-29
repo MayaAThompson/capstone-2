@@ -12,15 +12,14 @@ public class Sandwich extends Item {
     protected Size size;
     protected List<Topping> toppings;
     protected boolean signature;
-
-    public List<Topping> getToppings() {
-        return toppings;
-    }
-
     boolean toasted;
 
     public Sandwich() {
         toppings = new ArrayList<>();
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
     }
 
     public String showSandwich() {
@@ -113,15 +112,15 @@ public class Sandwich extends Item {
 
     public void addRegularTopping(int selection) {
         switch (selection) {
-            case 1-> this.addTopping(new RegularTopping(this.size, RegularToppingType.LETTUCE));
-            case 2-> this.addTopping(new RegularTopping(this.size, RegularToppingType.PEPPERS));
-            case 3-> this.addTopping(new RegularTopping(this.size, RegularToppingType.ONION));
-            case 4-> this.addTopping(new RegularTopping(this.size, RegularToppingType.TOMATO));
-            case 5-> this.addTopping(new RegularTopping(this.size, RegularToppingType.JALAPENO));
-            case 6-> this.addTopping(new RegularTopping(this.size, RegularToppingType.CUCUMBER));
-            case 7-> this.addTopping(new RegularTopping(this.size, RegularToppingType.PICKLE));
-            case 8-> this.addTopping(new RegularTopping(this.size, RegularToppingType.GUACAMOLE));
-            case 9-> this.addTopping(new RegularTopping(this.size, RegularToppingType.MUSHROOM));
+            case 1 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.LETTUCE));
+            case 2 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.PEPPERS));
+            case 3 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.ONION));
+            case 4 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.TOMATO));
+            case 5 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.JALAPENO));
+            case 6 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.CUCUMBER));
+            case 7 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.PICKLE));
+            case 8 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.GUACAMOLE));
+            case 9 -> this.addTopping(new RegularTopping(this.size, RegularToppingType.MUSHROOM));
         }
     }
 

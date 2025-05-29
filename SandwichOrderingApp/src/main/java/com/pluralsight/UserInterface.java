@@ -6,6 +6,7 @@ import com.pluralsight.items.Item;
 import com.pluralsight.items.Sandwich;
 import com.pluralsight.toppings.Topping;
 import com.pluralsight.utils.IOUtils;
+
 import java.util.List;
 
 public class UserInterface {
@@ -200,7 +201,7 @@ public class UserInterface {
     }
 
     public int getSelection() {
-        while(true) {
+        while (true) {
             try {
                 return IOUtils.messageAndResponseInt("Make your selection: ");
             } catch (NumberFormatException e) {
@@ -215,7 +216,7 @@ public class UserInterface {
     }
 
     public int itemSelection(List<Item> items) {
-        int i =1;
+        int i = 1;
         for (Item item : items) {
             System.out.print(i + ")");
             System.out.println(item);
@@ -225,7 +226,7 @@ public class UserInterface {
     }
 
     public int existingToppingSelection(List<Topping> toppings) {
-        int i =1;
+        int i = 1;
         for (Topping topping : toppings) {
             System.out.print(i + ")");
             System.out.println(topping);

@@ -73,7 +73,7 @@ public class MenuProcessor {
     public Sandwich processSigSandwich() {
         Sandwich sandwich = null;
         int selection = userInterface.signatureSandwichSelection();
-        while(sandwich == null) {
+        while (sandwich == null) {
             switch (selection) {
                 case 1 -> sandwich = new ReubenSandwich(userInterface.sizeSelection());
                 case 2 -> sandwich = new CubanSandwich(userInterface.sizeSelection());
@@ -110,8 +110,7 @@ public class MenuProcessor {
         if (confirm) {
             FileManager.saveReceipt(order);
             System.out.println("Order complete! We will have it ready for you shortly.");
-        }
-        else
+        } else
             System.out.println("Checkout cancelled.");
     }
 }

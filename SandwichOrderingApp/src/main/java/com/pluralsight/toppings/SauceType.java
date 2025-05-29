@@ -8,5 +8,5 @@ public enum SauceType {
     RANCH,
     THOUSAND_ISLAND,
     VINAIGRETTE,
-    AU_JUS;
+    AU_JUS
 }

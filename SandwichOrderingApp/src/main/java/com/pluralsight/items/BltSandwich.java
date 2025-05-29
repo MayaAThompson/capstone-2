@@ -4,7 +4,7 @@ import com.pluralsight.toppings.*;
 
 import java.util.ArrayList;
 
-public class BltSandwich extends Sandwich{
+public class BltSandwich extends Sandwich {
 
     public BltSandwich(int size) {
         toppings = new ArrayList<>();

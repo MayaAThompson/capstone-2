@@ -11,13 +11,14 @@ import java.util.List;
 
 public class FileManager {
 
+    private static final String savePath = "./src/main/resources/receipts/";
     static LocalDateTime dateTime = LocalDateTime.now();
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
-    private static final String savePath = "./src/main/resources/receipts/";
 
+    @SuppressWarnings("all")
     public static void saveReceipt(Order o) {
         List<Item> items = o.getOrder();
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(savePath + dateTime.format(formatter) + ".txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(savePath + dateTime.format(formatter) + ".txt"))) {
             for (Item item : items) {
                 writer.write(item.toString() + "\n");
             }

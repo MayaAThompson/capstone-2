@@ -10,17 +10,16 @@ import java.util.List;
 
 public class Order {
 
-    public String getName() {
-        return name;
-    }
-
     private final String name;
     @SuppressWarnings("FieldMayBeFinal")
     private List<Item> items;
-
     public Order(String name) {
         items = new ArrayList<>();
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addSandwich(Sandwich sandwich) {
